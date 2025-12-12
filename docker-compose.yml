@@ -1,0 +1,19 @@
+# netmon/docker-compose.yml
+version: '3.8'
+
+services:
+  netmon:
+    build: .
+    container_name: netmon
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ./config:/config:ro
+      - ./logs:/opt/netmon/log
+      - ./png:/opt/netmon/png
+    environment:
+      - TZ=Europe/Moscow
+    network_mode: "host"
+    ports:
+      - "8080:8080"  # nginx: логи и PNG
