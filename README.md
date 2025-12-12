@@ -15,6 +15,6 @@
 ```bash
 git clone https://github.com/harfury/netmon.git
 cd netmon
-cp config/example.env config/env
+cp config/.env.example config/.env
 nano config/env  # ← введите TG_BOT_TOKEN и TG_CHAT_ID
 ./install.sh
